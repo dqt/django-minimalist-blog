@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<h1>Archive</h1>
+Here are all of the posts I've made:
+
+{% endblock %}
+
+
+
+{% block blogs %}
+
+{% if posts %}
+    <ul>
+    {% for post in posts %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no posts.</p>
+    {% endif %}
+
+{% endblock %}
+
+
+
+{% block categories %}
+
+<h5>Categories</h5>
+{% if categories %}
+    <ul>
+    {% for category in categories %}
+        <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no posts.</p>
+{% endif %}
+
+{% endblock %}

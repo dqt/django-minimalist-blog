@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+
+{% block head_title %}{{ post.title }}{% endblock %}
+
+{% block title %}<h1>{{ post.title }}</h1>{% endblock %}
+
+
+
+{% block blogs %}
+    {{ post.body|safe }}
+{% endblock %}
+
+{% block categories %}
+<h5>Categories</h5>
+{% if categories %}
+
+    <ul>
+
+    {% for category in categories %}
+
+        <li><a href="{{ category.get_absolute_url }}">{{ category.title }}</a></li>
+
+    {% endfor %}
+
+    </ul>
+
+{% else %}
+
+    <p>There are no posts.</p>
+{% endif %}
+{% endblock %}
